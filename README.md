@@ -4,6 +4,8 @@
 - [詳細はこちらの記事で公開しています。](https://qiita.com/eno49conan/items/6d3e98df2ac82613c3b3)
 
 ### フォルダ構成の説明
+- .github/workflows/sample.yaml
+  - pushイベントで使用するworkflowファイル
 - db_ddl_data/
   - supabaseに登録するテーブル定義とサンプルデータ
 - migrations/
