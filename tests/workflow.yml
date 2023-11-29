@@ -1,0 +1,58 @@
+version: "1.0"
+name: FastAPI
+config:
+  http: "http://127.0.0.1:8001"
+env:
+  domainPort: "http://127.0.0.1:8001"
+tests:
+  default:
+    name: Default
+    steps:           
+      - id: dummy__get
+        name: Dummy
+        http:
+          url: ${{env.domainPort}}/dummy
+          method: GET
+          check:
+            status: /^20/
+            schema:
+              $ref: "#/components/schemas/DummyResponse"
+      # - id: movie_movie_get
+      #   name: Movie
+      #   http:
+      #     url: ${{env.domainPort}}/movie
+      #     method: GET
+      #     check:
+      #       status: /^20/
+      #       schema:
+      #         $ref: "#/components/schemas/MovieResponse"
+components:
+  schemas:
+    DummyResponse:
+      properties:
+        status:
+          type: string
+          title: Status
+      type: object
+      required:
+        - status
+      title: DummyResponse
+      description: Response model to validate and return when performing dummy endpoint.
+    # MovieResponse:
+    #   properties:
+    #     id:
+    #       type: integer
+    #       title: Id
+    #     name:
+    #       type: string
+    #       title: Name
+    #     description:
+    #       type: string
+    #       title: Description
+    #   type: object
+    #   required:
+    #     - id
+    #     - name
+    #     - description
+    #   title: MovieResponse
+    #   description: Response model to validate and return when performing a health check.

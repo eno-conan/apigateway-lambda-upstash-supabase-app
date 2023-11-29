@@ -1,0 +1,6 @@
+/.hypothesis
+/.pytest_cache
+/.ruff_cache
+/.env
+/htmlcov
+.coverage
